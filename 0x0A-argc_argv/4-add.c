@@ -1,30 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
- * main - adds positive numbers.
- * @argc: arguments counter
- * @argv: array of arguments
- * Return: 0 on success, 1 on failure
- *
+ *mynum - check if str contains number
+ *@s: str
+ *Return: Always 0(Success)
  */
-
+int mynum(char *s)
+{
+	while (*s)
+	{
+		if (*s >= 48 && *s <= 57)
+		{
+			s++;
+		}
+		else
+		{
+			return (1);
+		}
+	}
+	return (0);
+}
+/**
+ *main - add positive numbers
+ *@argc: number of args
+ *@argv: Point to the string of args
+ *Return: Always 0(Success)
+ */
 int main(int argc, char *argv[])
 {
-	int i, j, sum = 0;
+	int sum = 0, i;
 
-	for (i = 1; i < argc; j++)
+	if (argc < 2)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
+		printf("0\n");
+		return (0);
+	}
+	for (i = 1; i < argc; i++)
+	{
+		if (mynum(argv[i]))
 		{
-			if (argv[i][j] < '0' || argv[i][j] > '9')
-			{
-				printf("Error\n");
-				return (1);
-			}
+			printf("Error\n");
+			return (1);
 		}
-
-		sum += atoi(argv[i]);
+		else
+		{
+			sum += atoi(argv[i]);
+		}
 	}
 	printf("%d\n", sum);
 	return (0);
