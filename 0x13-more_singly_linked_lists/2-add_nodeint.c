@@ -4,7 +4,7 @@
 
 /**
  * add_nodeint - Adds a new node at the beginning of a listint_t list.
- * @ihead: It's list head address.
+ * @head: It's list head address.
  * @n: value.
  *
  * Return: This is the address of the new node, or NULL if it failed.
