@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * get_nodeint_at_index - function that return the node at the index in a linked list
+ * get_nodeint_at_index - function that return node at the index in linked list
  * @head: Pointer to first node.
  * @index: index of node to return.
  * Return: return Pointer to the nth node that we want or NULL if failed
