@@ -10,23 +10,22 @@
 
 listint_t *reverse_listint(listint_t **head)
 {
-        listint_t *nex, *befor;
+	listint_t *after, *befor;
 
-        if (head == NULL || *head == NULL)
-                return (NULL);
+	if (head == NULL || *head == NULL)
+		return (NULL);
 
-        befor = NULL;
+	befor = NULL;
 
-        while ((*head)->next != NULL)
-        {
-                nex = (*head)->next;
-                (*head)->next = befor;
-                befor = *head;
-                *head = nex;
-        }
+	while ((*head)->next != NULL)
+	{
+		after = (*head)->next;
+		(*head)->next = befor;
+		befor = *head;
+		*head = after;
+	}
 
-        (*head)->next = befor;
+	(*head)->next = befor;
 
-        return (*head);
+	return (*head);
 }
-                                      
