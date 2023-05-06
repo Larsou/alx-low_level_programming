@@ -3,36 +3,38 @@
 #include <math.h>
 
 /**
- * binary_to_uint - converts a binary number to the  unsigned int nbr.
- * @b: the constant binary.
- * Return: unsigned int of decimal.
+ * binary_to_uint - converts a binary number to the unsigned int nmbr.
+ * @b: constant binary
+ * Return: The unsigned int.
  */
 
 unsigned int binary_to_uint(const char *b)
-{	
-	int temp, bin;
-	unsigned int i;
+{
+	int k;
+	unsigned int bin = 0;
 
-	if (!b)
-		return (0);
-
-	i = 0;
-
-	for (temp = 0; b[temp] != '\0'; temp++)
-		;
-
-	for (temp--, bin = 1; temp >= 0; temp--, bin *= 2)
+	if (b == NULL)
 	{
-		if (b[temp] != '0' && b[temp] != '1')
-		{
-			return (0);
-		}
+	return (0);
+	}
 
-		if (b[temp] & 1)
+	for (k = 0; b[k] != '\0'; k++)
+	{
+	if (b[k] == '0')
+	{
+		bin <<= 1;
+	}
+	else if (b[k] == '1')
+	{
+		bin <<= 1;
+		bin |= 1;
+	}
+	else
 		{
-			i += bin;
+		return (0);
 		}
 	}
 
-	return (i);
+	return (bin);
 }
+
